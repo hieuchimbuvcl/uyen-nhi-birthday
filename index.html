@@ -3,31 +3,30 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Chúc mừng sinh nhật Uyên Nhi Bel Thúi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Thiệp sinh nhật Uyên Nhi Bel Thúi</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffd1dc, #ffe4e1);
       font-family: 'Comic Sans MS', cursive;
-      background: linear-gradient(120deg, #ffe6f0, #ffe0ff);
-      overflow: hidden;
-      color: #d63384;
       text-align: center;
+      overflow: hidden;
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5em;
-      margin-top: 50px;
+      font-size: 2.8em;
       color: #ff1493;
-      text-shadow: 2px 2px 8px #ff69b4;
+      text-shadow: 2px 2px #fff0f5;
+      margin-top: 60px;
+      animation: bounce 1s infinite alternate;
     }
 
     p {
-      font-size: 1.5em;
-      max-width: 700px;
+      font-size: 1.4em;
+      color: #880e4f;
       margin: 20px auto;
-      color: #8b005f;
+      max-width: 700px;
     }
 
     .gallery {
@@ -35,70 +34,63 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 20px;
-      margin: 40px auto;
+      margin-top: 30px;
     }
 
     .gallery img {
-      width: 250px;
+      width: 220px;
       border-radius: 20px;
-      border: 4px solid #ffb3d9;
       box-shadow: 0 0 20px #ff8fe0;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .gallery img:hover {
-      transform: scale(1.07);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff1493;
     }
 
     button {
       margin-top: 30px;
-      padding: 12px 24px;
+      padding: 12px 28px;
       font-size: 1.2em;
       border: none;
-      border-radius: 12px;
-      background-color: #ff4db8;
+      border-radius: 15px;
+      background-color: #ff69b4;
       color: white;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     button:hover {
-      background-color: #e60073;
+      background-color: #ff1493;
     }
 
     footer {
-      margin-top: 40px;
-      font-style: italic;
-      color: #a64dff;
-      font-size: 1.1em;
+      margin-top: 50px;
+      font-size: 1em;
+      color: #444;
+      opacity: 0.7;
     }
 
-    /* Floating hearts & bubbles */
-    .floating {
-      position: fixed;
-      bottom: -100px;
-      animation: float 10s linear infinite;
-      opacity: 0.6;
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
     }
 
-    .heart, .bubble {
-      width: 40px;
-      height: 40px;
-      background-size: cover;
+    .heart, .balloon {
       position: absolute;
+      width: 20px;
+      height: 20px;
+      background-size: cover;
+      opacity: 0.8;
     }
 
     .heart {
-      background-image: url('https://i.imgur.com/QpZ5lzs.png');
+      background-image: url('https://i.imgur.com/8Km9tLL.png');
     }
 
-    .bubble {
-      background-image: url('https://i.imgur.com/WL8VZ5T.png');
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0); }
-      100% { transform: translateY(-120vh) rotate(360deg); }
+    .balloon {
+      background-image: url('https://i.imgur.com/z4d4kWk.png');
     }
   </style>
 </head>
@@ -111,9 +103,9 @@
   </p>
 
   <div class="gallery">
-    <img src="image1.png" alt="Ảnh 1">
-    <img src="image2.png" alt="Ảnh 2">
-    <img src="image3.png" alt="Ảnh 3">
+    <img src="image1.png" alt="Uyên Nhi 1">
+    <img src="image2.png" alt="Uyên Nhi 2">
+    <img src="image3.png" alt="Uyên Nhi 3">
   </div>
 
   <button onclick="document.getElementById('bgmusic').play()">🔊 Bật nhạc</button>
@@ -123,18 +115,32 @@
     Trình duyệt của bạn không hỗ trợ phát nhạc.
   </audio>
 
-  <footer>— From: Người giấu tên 😎 —</footer>
+  <footer>From: Người giấu tên 😎</footer>
 
-  <!-- Floating decoration -->
   <script>
-    for (let i = 0; i < 30; i++) {
-      const el = document.createElement('div');
-      el.className = 'floating ' + (Math.random() > 0.5 ? 'heart' : 'bubble');
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.animationDuration = 5 + Math.random() * 10 + 's';
-      el.style.width = el.style.height = (30 + Math.random() * 20) + 'px';
-      document.body.appendChild(el);
+    function createFloatingIcon(className, speed) {
+      const icon = document.createElement("div");
+      icon.className = className;
+      icon.style.left = Math.random() * window.innerWidth + "px";
+      icon.style.top = "100%";
+      icon.style.opacity = Math.random();
+      document.body.appendChild(icon);
+
+      let pos = window.innerHeight;
+      const interval = setInterval(() => {
+        pos -= speed;
+        icon.style.top = pos + "px";
+        if (pos < -40) {
+          clearInterval(interval);
+          icon.remove();
+        }
+      }, 30);
     }
+
+    setInterval(() => {
+      createFloatingIcon("heart", Math.random() * 2 + 1);
+      createFloatingIcon("balloon", Math.random() * 2 + 0.5);
+    }, 500);
   </script>
 </body>
 </html>
