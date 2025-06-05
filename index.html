@@ -44,6 +44,22 @@
       transform: scale(1.05);
     }
 
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
     @keyframes glow {
       from { text-shadow: 0 0 10px #ff69b4; }
       to { text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4; }
@@ -64,7 +80,9 @@
     <img src="image3.png" alt="Uyên Nhi 3">
   </div>
 
-  <audio autoplay loop>
+  <button onclick="document.getElementById('bgmusic').play()">🔊 Bật nhạc</button>
+
+  <audio id="bgmusic" loop>
     <source src="birthday.mp3" type="audio/mpeg">
     Trình duyệt của bạn không hỗ trợ phát nhạc.
   </audio>
