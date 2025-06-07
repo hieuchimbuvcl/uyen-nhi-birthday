@@ -145,10 +145,7 @@
   </iframe>
 </div>
 
-  <audio id="bgmusic" loop>
-    <source src="birthday.mp3" type="audio/mpeg">
-    Trình duyệt của bạn không hỗ trợ phát nhạc.
-  </audio>
+  
 
   <footer>From: Chaialimi 💌</footer>
 
@@ -177,12 +174,7 @@
       createFloatingIcon("balloon", Math.random() * 2 + 0.5);
     }, 500);
 
-    window.addEventListener('click', function () {
-      const audio = document.getElementById('bgmusic');
-      if (audio.paused) {
-        audio.play().catch(e => console.log("Trình duyệt chặn tự động phát:", e));
-      }
-    }, { once: true });
+    
 
     function showVideo() {
       const container = document.getElementById('videoContainer');
