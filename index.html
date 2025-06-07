@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -132,20 +131,17 @@
     <img src="CapooHeartEars.gif" alt="capoo4">
   </div>
 
-  <button id="musicToggleBtn" onclick="toggleMusic()">🔊 Bật nhạc</button>
   <button onclick="showVideo()">🎥 Ấn sau 7s bật nhạc</button>
 
   <div id="videoContainer" style="display: none; margin-top: 30px;">
-  <iframe id="youtubeFrame" width="480" height="270"
-    src=""
-    title="Birthday Surprise"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
-
-  
+    <iframe id="youtubeFrame" width="480" height="270"
+      src=""
+      title="Birthday Surprise"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <footer>From: Chaialimi 💌</footer>
 
@@ -174,15 +170,9 @@
       createFloatingIcon("balloon", Math.random() * 2 + 0.5);
     }, 500);
 
-    
-
     function showVideo() {
       const container = document.getElementById('videoContainer');
-      const bgmusic = document.getElementById('bgmusic');
       const iframe = document.getElementById('youtubeFrame');
-      if (!bgmusic.paused) {
-        bgmusic.pause();
-      }
       iframe.src = 'https://www.youtube.com/embed/QxgKi5Pd4lI?autoplay=1';
       container.style.display = 'block';
     }
