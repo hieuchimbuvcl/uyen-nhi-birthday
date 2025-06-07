@@ -132,8 +132,8 @@
     <img src="CapooHeartEars.gif" alt="capoo4">
   </div>
 
-  <button onclick="document.getElementById('bgmusic').play()">🔊 Bật nhạc</button>
-  <button onclick="showVideo()">🎥 Xem</button>
+  <button id="musicToggleBtn" onclick="toggleMusic()">🔊 Bật nhạc</button>
+  <button id="showButton" onclick="showVideo()" style="display:none;">🎥 Xem</button>
 
   <div id="videoContainer" style="display: none; margin-top: 30px;">
   <iframe id="youtubeFrame" width="480" height="270"
